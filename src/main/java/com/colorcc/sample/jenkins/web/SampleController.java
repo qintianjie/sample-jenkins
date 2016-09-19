@@ -10,7 +10,7 @@ public class SampleController {
 	
 	@RequestMapping(value="/hello", method=RequestMethod.GET)
 	public String hello() {
-		return "Hello world2www.";
+		return "Hello world.";
 	}
 
 }
