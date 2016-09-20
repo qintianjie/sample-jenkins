@@ -38,11 +38,11 @@ parallel 'integration': {
             sh "sleep 2"
      }
 }
-stage 'approve'
-    input message: 'Do you want to deploy?'
-// timeout(time: 7, unit: 'DAYS') {
-//      input message: 'Do you want to deploy?', submitter: 'ops'
-// }
+// stage 'approve'
+//     input message: 'Do you want to deploy?'
+// // timeout(time: 7, unit: 'DAYS') {
+// //      input message: 'Do you want to deploy?', submitter: 'ops'
+// // }
 stage name:'deploy', concurrency: 1
 node {
      unstash 'source'
