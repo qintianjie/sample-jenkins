@@ -39,7 +39,8 @@ parallel 'integration': {
      }
 }
 stage 'approve'
-    input message: 'Do you want to deploy?'
+//    input message: 'Do you want to deploy?'
+    sh "echo 'approve'"
 // timeout(time: 7, unit: 'DAYS') {
 //      input message: 'Do you want to deploy?', submitter: 'ops'
 // }
