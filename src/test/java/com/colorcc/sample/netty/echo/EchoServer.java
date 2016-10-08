@@ -33,7 +33,7 @@ public class EchoServer {
 							.addLast(serverHandler);
 					}
 				}).option(ChannelOption.SO_BACKLOG, 128) 
-				.childOption(ChannelOption.SO_KEEPALIVE, true);;
+				.childOption(ChannelOption.SO_KEEPALIVE, true);
 			ChannelFuture f = b.bind().sync();
 			f.channel().closeFuture().sync();
 		} finally {

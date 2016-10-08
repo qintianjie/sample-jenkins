@@ -45,7 +45,7 @@ public class MyProxyClz extends MyServiceImpl implements Serializable, ProxyObje
 	static {
 		Method[] arrayOfMethod = new Method[26];
 		try {
-			Class localClass = Class.forName("com.colorcc.sample.javassist.MyProxyClz");
+			Class<?> localClass = Class.forName("com.colorcc.sample.javassist.MyProxyClz");
 			RuntimeSupport.find2Methods(localClass, "clone", "_d0clone", 0, "()Ljava/lang/Object;", arrayOfMethod);
 			RuntimeSupport.find2Methods(localClass, "equals", "_d1equals", 2, "(Ljava/lang/Object;)Z", arrayOfMethod);
 			RuntimeSupport.find2Methods(localClass, "hashCode", "_d4hashCode", 8, "()I", arrayOfMethod);
@@ -68,9 +68,14 @@ public class MyProxyClz extends MyServiceImpl implements Serializable, ProxyObje
 		return super.clone();
 	}
 
-	protected final Object clone() throws CloneNotSupportedException {
+	protected final Object clone() {
 		Method[] arrayOfMethod = _methods_;
-		return (Object) this.handler.invoke(this, arrayOfMethod[0], arrayOfMethod[1], new Object[0]);
+		try {
+			return (Object) this.handler.invoke(this, arrayOfMethod[0], arrayOfMethod[1], new Object[0]);
+		} catch (Throwable e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public final boolean _d1equals(Object paramObject) {
@@ -79,7 +84,12 @@ public class MyProxyClz extends MyServiceImpl implements Serializable, ProxyObje
 
 	public final boolean equals(Object paramObject) {
 		Method[] arrayOfMethod = _methods_;
-		return ((Boolean) this.handler.invoke(this, arrayOfMethod[2], arrayOfMethod[3], new Object[] { paramObject })).booleanValue();
+		try {
+			return ((Boolean) this.handler.invoke(this, arrayOfMethod[2], arrayOfMethod[3], new Object[] { paramObject })).booleanValue();
+		} catch (Throwable e) {
+			e.printStackTrace();
+			return false;
+		}
 	}
 
 	public final int _d4hashCode() {
@@ -88,7 +98,12 @@ public class MyProxyClz extends MyServiceImpl implements Serializable, ProxyObje
 
 	public final int hashCode() {
 		Method[] arrayOfMethod = _methods_;
-		return ((Integer) this.handler.invoke(this, arrayOfMethod[8], arrayOfMethod[9], new Object[0])).intValue();
+		try {
+			return ((Integer) this.handler.invoke(this, arrayOfMethod[8], arrayOfMethod[9], new Object[0])).intValue();
+		} catch (Throwable e) {
+			e.printStackTrace();
+			return 0;
+		}
 	}
 
 	public final String _d7sayHello() {
@@ -97,7 +112,12 @@ public class MyProxyClz extends MyServiceImpl implements Serializable, ProxyObje
 
 	public final String sayHello() {
 		Method[] arrayOfMethod = _methods_;
-		return (String) this.handler.invoke(this, arrayOfMethod[14], arrayOfMethod[15], new Object[0]);
+		try {
+			return (String) this.handler.invoke(this, arrayOfMethod[14], arrayOfMethod[15], new Object[0]);
+		} catch (Throwable e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public final String _d8sayHello(String paramString) {
@@ -106,7 +126,12 @@ public class MyProxyClz extends MyServiceImpl implements Serializable, ProxyObje
 
 	public final String sayHello(String paramString) {
 		Method[] arrayOfMethod = _methods_;
-		return (String) this.handler.invoke(this, arrayOfMethod[16], arrayOfMethod[17], new Object[] { paramString });
+		try {
+			return (String) this.handler.invoke(this, arrayOfMethod[16], arrayOfMethod[17], new Object[] { paramString });
+		} catch (Throwable e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	public final String _d9toString() {
@@ -115,6 +140,11 @@ public class MyProxyClz extends MyServiceImpl implements Serializable, ProxyObje
 
 	public final String toString() {
 		Method[] arrayOfMethod = _methods_;
-		return (String) this.handler.invoke(this, arrayOfMethod[18], arrayOfMethod[19], new Object[0]);
+		try {
+			return (String) this.handler.invoke(this, arrayOfMethod[18], arrayOfMethod[19], new Object[0]);
+		} catch (Throwable e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 }
