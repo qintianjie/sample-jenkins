@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 import java.util.Map;
 
+import com.alibaba.fastjson.JSON;
+
 public class SeriObject implements Serializable {
 	private static final long serialVersionUID = 3038510513323041576L;
 	private String name;
@@ -33,5 +35,9 @@ public class SeriObject implements Serializable {
 	}
 	public void setList(List<String> list) {
 		this.list = list;
+	}
+	
+	public String toString() {
+		return JSON.toJSONString(this);
 	}
 }

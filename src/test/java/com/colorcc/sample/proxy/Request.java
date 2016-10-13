@@ -3,6 +3,7 @@ package com.colorcc.sample.proxy;
 import com.alibaba.fastjson.JSON;
 
 public class Request {
+	@SuppressWarnings("unused")
 	private String req;
 	private String resp;
 	public Request(String req) {

@@ -7,6 +7,7 @@ import com.colorcc.sample.proxy.service.impl.HelloServiceImpl;
 
 public class ProxyMain {
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public static void main(String[] args) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		
 //		objProxy();

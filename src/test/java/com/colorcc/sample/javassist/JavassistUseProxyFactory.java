@@ -6,7 +6,7 @@ import javassist.util.proxy.MethodFilter;
 import javassist.util.proxy.ProxyFactory;
 
 public class JavassistUseProxyFactory {
-	  private static final String WRITE_REPLACE_METHOD = "writeReplace";
+//	  private static final String WRITE_REPLACE_METHOD = "writeReplace";
 
 	public static void main(String[] args) throws InstantiationException, IllegalAccessException {
 		ProxyFactory factory = new ProxyFactory ();
